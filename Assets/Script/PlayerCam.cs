@@ -10,7 +10,8 @@ public class PlayerCam : MonoBehaviour
     public Transform orientation;
 
     float xRotation;
-    float yRotation;   
+    float yRotation;
+    public Transform cameraPosition;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -28,6 +29,7 @@ public class PlayerCam : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
+        transform.position = cameraPosition.position; 
         transform.rotation = Quaternion.Euler(xRotation,yRotation, 0 );
         orientation.rotation = Quaternion.Euler(0,yRotation,0);
 

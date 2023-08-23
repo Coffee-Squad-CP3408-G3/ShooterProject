@@ -1586,7 +1586,6 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
-  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: PlayerCam
   m_TagString: MainCamera
@@ -1684,18 +1683,6 @@ MonoBehaviour:
   sensX: 250
   sensY: 250
   orientation: {fileID: 634513892}
---- !u!114 &963194230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5280fd1883fab1346b7e14f28df6c8cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   cameraPosition: {fileID: 56017430}
 --- !u!1 &1015849060
 GameObject:
