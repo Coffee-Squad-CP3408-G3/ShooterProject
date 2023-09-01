@@ -39,6 +39,11 @@ public class Gun : MonoBehaviour {
             shootInput?.Invoke();
         }
 
+        if (Input.GetKeyDown(KeyCode.R)) {
+            gunData.currentAmmo = gunData.magSize;
+            Debug.Log("Reloaded!");
+        }
+
         timeSinceLastShot += Time.deltaTime;
         Debug.DrawRay(cam.position, cam.forward * gunData.maxDistance);
     }
