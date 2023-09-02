@@ -17,15 +17,15 @@ public class EnemyAI : MonoBehaviour
     {
         direction = goal.transform.position - transform.position;
         transform.LookAt(goal.transform.position);
-        if (direction.magnitude > 2 && direction.magnitude < 15)
+        if (direction.magnitude > 2)
         {
             Vector3 velocity = direction.normalized * speed * Time.deltaTime;
             transform.position = transform.position + velocity;
         }
 
-        if (direction.magnitude > 15) 
-        {
-            Vector3 velocity = new Vector3(0, 0, 0);
-        }
+        //if (direction.magnitude > 15) 
+        //{
+        //    Vector3 velocity = new Vector3(0, 0, 0);
+        //}
     }
 }
