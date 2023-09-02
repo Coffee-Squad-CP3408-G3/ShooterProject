@@ -35,3 +35,5 @@ public class Waypoints : MonoBehaviour
         transform.Translate(0, 0, speed * Time.deltaTime);
     }
 }
+
+
