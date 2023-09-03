@@ -10,12 +10,15 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         enemy = GetComponent<NavMeshAgent>();
-        
         player = GameObject.FindWithTag("Player");
     }
 
-    private void LateUpdate()
-    {
+    private void Update()
+    {   
         enemy.SetDestination(player.transform.position);
+        
+    if(Vector3.Distance(transform.position, player.transform.position) < 3f) {
+        enemy.SetDestination(transform.position);
+    }
     }
 }
