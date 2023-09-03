@@ -23,8 +23,8 @@ public class Gun : MonoBehaviour {
         if (gunData.currentAmmo > 0) {
             if (CanShoot()) {
                 if (Physics.Raycast(cam.position, transform.forward, out RaycastHit hitInfo, gunData.maxDistance)) {
-                    IDamageable damageable = hitInfo.transform.GetComponent<IDamageable>();
-                    damageable?.TakeDamage(gunData.damage);
+                    EnemyAI enemy = hitInfo.transform.GetComponent<EnemyAI>();
+                    enemy?.TakeDamage(gunData.damage);
                 }
 
                 gunData.currentAmmo--;

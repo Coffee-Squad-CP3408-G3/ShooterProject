@@ -17,8 +17,12 @@ public class EnemyAI : MonoBehaviour
     {   
         enemy.SetDestination(player.transform.position);
         
-    if(Vector3.Distance(transform.position, player.transform.position) < 3f) {
-        enemy.SetDestination(transform.position);
+        if(Vector3.Distance(transform.position, player.transform.position) < 3f) {
+            enemy.SetDestination(transform.position);
+        }
     }
+
+    public void TakeDamage(float damage) {
+        Debug.Log("Ouch!");
     }
 }
