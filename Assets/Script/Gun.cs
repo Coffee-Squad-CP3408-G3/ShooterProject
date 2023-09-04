@@ -37,29 +37,29 @@ public class Gun : MonoBehaviour {
     }
 
     private void StartReload() {
-        Debug.Log("Reload key pressed");
+        Debug.Log("Reload Key pressed");
         if (gunData.currentAmmo < gunData.magSize) {
             Debug.Log("Reloading");
             if (!gunData.reloading) {
                 StartCoroutine(Reload());
             }
-
         }
     }
 
     private IEnumerator Reload() {
         gunData.reloading = true;
-
         yield return new WaitForSeconds(gunData.reloadTime);
-
         gunData.currentAmmo = gunData.magSize;
-
         gunData.reloading = false;
     }
 
     private void Update() {
         if (Input.GetMouseButton(0)) {
             Shoot();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R)) {
+            StartReload();
         }
 
         timeSinceLastShot += Time.deltaTime;
