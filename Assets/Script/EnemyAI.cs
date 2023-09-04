@@ -22,7 +22,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private float health = 100f;
+    public float health = 1f;
 
     public void TakeDamage(float damage) {
         health -= damage;
