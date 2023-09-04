@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5794965846205980575
 Transform:
   m_ObjectHideFlags: 0
@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: 001eecc3f0ccfd0438b3b92609faf0b1, type: 2}
-  cam: {fileID: 0}
 --- !u!1 &6682029462079474695
 GameObject:
   m_ObjectHideFlags: 0
