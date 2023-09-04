@@ -6,7 +6,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour {
     [Header("References")]
     [SerializeField] private GunData gunData;
-    [SerializeField] private Transform cam;
+    private Transform cam;
 
     float timeSinceLastShot;
 
@@ -16,6 +16,7 @@ public class Gun : MonoBehaviour {
     private void Start() {
         shootInput += Shoot;
         reloadInput += StartReload;
+        cam = GameObject.FindWithTag("MainCamera").transform;
     }
 
     private bool CanShoot() => !gunData.reloading && timeSinceLastShot > 1f / (gunData.fireRate / 60f);
