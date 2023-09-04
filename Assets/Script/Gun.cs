@@ -11,9 +11,11 @@ public class Gun : MonoBehaviour {
     float timeSinceLastShot;
 
     public static Action shootInput;
+    public static Action reloadInput;
 
     private void Start() {
         shootInput += Shoot;
+        reloadInput += StartReload;
     }
 
     private bool CanShoot() => !gunData.reloading && timeSinceLastShot > 1f / (gunData.fireRate / 60f);
@@ -62,6 +64,10 @@ public class Gun : MonoBehaviour {
 
         timeSinceLastShot += Time.deltaTime;
         Debug.DrawRay(cam.position, cam.forward * gunData.maxDistance);
+
+        if (Input.GetKeyDown(KeyCode.R)) {
+            reloadInput?.Invoke();
+        }
     }
 
     private void OnGunShot() {
