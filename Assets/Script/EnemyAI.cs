@@ -22,7 +22,12 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    private float health = 100f;
+
     public void TakeDamage(float damage) {
-        Debug.Log("Ouch!");
+        health -= damage;
+        if (health <= 0) {
+            Destroy(gameObject);
+        }
     }
 }

@@ -11,9 +11,11 @@ public class Gun : MonoBehaviour {
     float timeSinceLastShot;
 
     public static Action shootInput;
+    public static Action reloadInput;
 
     private void Start() {
         shootInput += Shoot;
+        reloadInput += StartReload;
     }
 
     private bool CanShoot() => !gunData.reloading && timeSinceLastShot > 1f / (gunData.fireRate / 60f);
@@ -34,18 +36,38 @@ public class Gun : MonoBehaviour {
         }
     }
 
+    private void StartReload() {
+        Debug.Log("Reload key pressed");
+        if (gunData.currentAmmo < gunData.magSize) {
+            Debug.Log("Reloading");
+            if (!gunData.reloading) {
+                StartCoroutine(Reload());
+            }
+
+        }
+    }
+
+    private IEnumerator Reload() {
+        gunData.reloading = true;
+
+        yield return new WaitForSeconds(gunData.reloadTime);
+
+        gunData.currentAmmo = gunData.magSize;
+
+        gunData.reloading = false;
+    }
+
     private void Update() {
         if (Input.GetMouseButton(0)) {
-            shootInput?.Invoke();
-        }
-
-        if (Input.GetKeyDown(KeyCode.R)) {
-            gunData.currentAmmo = gunData.magSize;
-            Debug.Log("Reloaded!");
+            Shoot();
         }
 
         timeSinceLastShot += Time.deltaTime;
         Debug.DrawRay(cam.position, cam.forward * gunData.maxDistance);
+
+        if (Input.GetKeyDown(KeyCode.R)) {
+            reloadInput?.Invoke();
+        }
     }
 
     private void OnGunShot() {
