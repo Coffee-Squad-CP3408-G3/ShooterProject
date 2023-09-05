@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour {
     [Header("References")]
-    [SerializeField] private GunData gunData;
+    [SerializeField] public GunData gunData;
     private Transform cam;
 
     float timeSinceLastShot;
@@ -14,8 +14,6 @@ public class Gun : MonoBehaviour {
     public static Action shootInput;
     public static Action reloadInput;
 
-    
-    
 
     private void Start() {
         shootInput += Shoot;

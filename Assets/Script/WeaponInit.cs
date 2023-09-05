@@ -22,12 +22,14 @@ public class WeaponInit : MonoBehaviour
             if(ActiveWeapon == 2) {
                 FirstGun.SetActive(false);
                 SecondGun.SetActive(true);
+                FirstGun.GetComponent<Gun>().gunData.reloading = false;
                 ActiveWeapon = 1;
             }
 
             else {
                 SecondGun.SetActive(false);
                 FirstGun.SetActive(true);
+                SecondGun.GetComponent<Gun>().gunData.reloading = false;
                 ActiveWeapon = 2;
             }
         }
