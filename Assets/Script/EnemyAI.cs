@@ -5,8 +5,11 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
+    [SerializeField] private EnemyData enemyData;
     NavMeshAgent enemy;
     GameObject player;
+    public PlayerStats playerStats;
+
     void Start()
     {
         enemy = GetComponent<NavMeshAgent>();
@@ -19,6 +22,13 @@ public class EnemyAI : MonoBehaviour
         
         if(Vector3.Distance(transform.position, player.transform.position) < 3f) {
             enemy.SetDestination(transform.position);
+        }
+
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag == "Player") {
+            playerStats.PlayerTakeDamage(enemyData.EnemyDamage);
         }
     }
 
