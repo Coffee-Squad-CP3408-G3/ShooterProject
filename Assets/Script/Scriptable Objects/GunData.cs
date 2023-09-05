@@ -8,6 +8,7 @@ using UnityEngine;
 public class GunData : ScriptableObject {
     [Header("Info")]
     public new string name;
+    
 
     [Header("Shooting")]
     public float damage;
@@ -19,4 +20,5 @@ public class GunData : ScriptableObject {
     public float fireRate;
     public float reloadTime;
     public bool reloading;
+
 }

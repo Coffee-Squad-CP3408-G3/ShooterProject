@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Gun : MonoBehaviour {
@@ -12,6 +13,9 @@ public class Gun : MonoBehaviour {
 
     public static Action shootInput;
     public static Action reloadInput;
+
+    
+    
 
     private void Start() {
         shootInput += Shoot;
