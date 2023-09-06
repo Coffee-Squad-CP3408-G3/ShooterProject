@@ -9,6 +9,8 @@ public class EnemyAI : MonoBehaviour
     NavMeshAgent enemy;
     GameObject player;
     PlayerStats playerStats;
+    
+
 
     void Start()
     {
@@ -39,6 +41,7 @@ public class EnemyAI : MonoBehaviour
         health -= damage;
         if (health <= 0) {
             Destroy(gameObject);
+
         }
     }
 }
