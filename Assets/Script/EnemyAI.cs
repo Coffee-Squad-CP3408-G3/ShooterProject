@@ -8,12 +8,13 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private EnemyData enemyData;
     NavMeshAgent enemy;
     GameObject player;
-    public PlayerStats playerStats;
+    PlayerStats playerStats;
 
     void Start()
     {
         enemy = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
+        playerStats = player.GetComponent<PlayerStats>();
     }
 
     private void Update()
