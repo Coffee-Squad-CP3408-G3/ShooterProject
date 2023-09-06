@@ -9,14 +9,13 @@ public class EnemyAI : MonoBehaviour
     NavMeshAgent enemy;
     GameObject player;
     PlayerStats playerStats;
-    
-
-
+    float health;
     void Start()
     {
         enemy = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
         playerStats = player.GetComponent<PlayerStats>();
+        health = enemyData.EnemyHealth;
     }
 
     private void Update()
@@ -34,8 +33,6 @@ public class EnemyAI : MonoBehaviour
             playerStats.PlayerTakeDamage(enemyData.EnemyDamage);
         }
     }
-
-    public float health = 1f;
 
     public void TakeDamage(float damage) {
         health -= damage;
