@@ -13,6 +13,7 @@ public class Gun : MonoBehaviour {
 
     public static Action shootInput;
     public static Action reloadInput;
+    [SerializeField] public AudioSource gunShot;
 
 
     private void Start() {
@@ -24,7 +25,7 @@ public class Gun : MonoBehaviour {
     private bool CanShoot() => !gunData.reloading && timeSinceLastShot > 1f / (gunData.fireRate / 60f);
 
     public void Shoot() {
-
+        
         if (gunData.currentAmmo > 0) {
             if (CanShoot()) {
                 if (Physics.Raycast(cam.position, transform.forward, out RaycastHit hitInfo, gunData.maxDistance)) {
@@ -32,7 +33,8 @@ public class Gun : MonoBehaviour {
                     EnemyAI enemy = hitInfo.transform.GetComponent<EnemyAI>();
                     enemy?.TakeDamage(gunData.damage);
                 }
-
+                gunShot.Stop();
+                gunShot.Play();
                 gunData.currentAmmo--;
                 timeSinceLastShot = 0;
                 OnGunShot();
