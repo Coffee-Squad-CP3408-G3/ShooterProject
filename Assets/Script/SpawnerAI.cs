@@ -7,11 +7,21 @@ public class SpawnerAI : MonoBehaviour
     static float timer;
     static int secondsPassed = 0;
     static float valueModifier = 0;
+    static GameObject[] spawners;
+    static GameObject controller;
+
+    void Start() {
+        spawners = GameObject.FindGameObjectsWithTag("Spawner");
+        controller = GameObject.FindGameObjectWithTag("SpawnController");
+    }
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= 60) {secondsPassed++;}
-        
+        if (timer >= 6) {
+            secondsPassed++;
+            timer = 0;;
+            Instantiate(controller.GetComponent<Enemies>().enemies[0], spawners[0].transform.position, Quaternion.identity);
 
+        }
     }
 }
