@@ -7,6 +7,7 @@ public class SpawnerAI : MonoBehaviour
     static float timer;
     static int secondsPassed = 0;
     static float valueModifier = 0;
+    static float currentBudget = 0;
     static GameObject[] spawners;
     static GameObject controller;
 
@@ -19,9 +20,15 @@ public class SpawnerAI : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= 6) {
             secondsPassed++;
-            timer = 0;;
-            Instantiate(controller.GetComponent<Enemies>().enemies[0], spawners[0].transform.position, Quaternion.identity);
+            timer = 0;
+            currentBudget++;
 
+            if(currentBudget > 0) {
+                if (Random.Range(0,10) > 5) {
+                    Instantiate(controller.GetComponent<Enemies>().enemies[0], spawners[Random.Range(0,3)].transform.position, Quaternion.identity);
+                }
+            }
         }
+        
     }
 }
