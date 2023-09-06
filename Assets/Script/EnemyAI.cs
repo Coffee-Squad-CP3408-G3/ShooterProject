@@ -23,7 +23,7 @@ public class EnemyAI : MonoBehaviour
     {   
         enemy.SetDestination(player.transform.position);
         
-        if(Vector3.Distance(transform.position, player.transform.position) < EnemyStopRange) {
+        if(Vector3.Distance(transform.position, player.transform.position) < enemyData.EnemyStopRange) {
             enemy.SetDestination(transform.position);
         }
 
