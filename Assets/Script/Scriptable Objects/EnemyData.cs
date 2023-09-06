@@ -9,8 +9,9 @@ public class EnemyData : ScriptableObject {
     [Header("Info")]
     public new string name;
     public float EnemyHealth;
-    public float EnemyDamage = 1f;
+    public float EnemyDamage;
     public float EnemySpeed;
     public float EnemyDamageRate;
+    public float EnemyStopRange;
     public float EnemyValue;
 }
