@@ -144,5 +144,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 1b591b7c2bda69f43b24b8a9e001283e, type: 2}
-  playerStats: {fileID: 0}
   health: 20
