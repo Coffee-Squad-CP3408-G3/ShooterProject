@@ -33,9 +33,10 @@ public class Gun : MonoBehaviour {
                     EnemyAI enemy = hitInfo.transform.GetComponent<EnemyAI>();
                     enemy?.TakeDamage(gunData.damage);
                 }
-                gunShot.Stop();
-                gunShot.Play();
+                
+                
                 gunData.currentAmmo--;
+                gunShot.Play();
                 timeSinceLastShot = 0;
                 OnGunShot();
             }
