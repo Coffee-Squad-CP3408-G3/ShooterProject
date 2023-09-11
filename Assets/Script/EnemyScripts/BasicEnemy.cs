@@ -5,26 +5,26 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] private EnemyData enemyData;
-    NavMeshAgent enemy;
-    GameObject player;
-    PlayerStats playerStats;
-    float health;
+    [SerializeField] protected EnemyData enemyData;
+    protected NavMeshAgent enemyNav;
+    protected GameObject player;
+    protected PlayerStats playerStats;
+    protected float health;
     void Start()
     {
-        enemy = GetComponent<NavMeshAgent>();
+        enemyNav = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
         playerStats = player.GetComponent<PlayerStats>();
         health = enemyData.EnemyHealth;
-        enemy.speed = enemyData.EnemySpeed; 
+        enemyNav.speed = enemyData.EnemySpeed; 
     }
 
     private void Update()
     {   
-        enemy.SetDestination(player.transform.position);
+        enemyNav.SetDestination(player.transform.position);
         
         if(Vector3.Distance(transform.position, player.transform.position) < enemyData.EnemyStopRange) {
-            enemy.SetDestination(transform.position);
+            enemyNav.SetDestination(transform.position);
         }
 
     }

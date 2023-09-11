@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Shielder
   EnemyHealth: 25
   EnemyDamage: 5
-  EnemySpeed: 5
+  EnemySpeed: 6
   EnemyDamageRate: 1
   EnemyStopRange: 0
   EnemyValue: 2

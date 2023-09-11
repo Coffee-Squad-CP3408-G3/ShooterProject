@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 810982242011500438}
   - component: {fileID: 5622616355747247769}
   - component: {fileID: 2812758230720517753}
-  - component: {fileID: 7585155142379243561}
+  - component: {fileID: 6614016500562034839}
   m_Layer: 0
   m_Name: ShieldEnemy
   m_TagString: Untagged
@@ -132,7 +132,7 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7585155142379243561
+--- !u!114 &6614016500562034839
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5791480197876967917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f001fc86e18a9e4a84c35d4b360e560, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b0fff30beff6ab45babfe382a43913a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 3098d899923dcd948a5fca7aee8f770a, type: 2}
