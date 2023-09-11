@@ -12,6 +12,8 @@ public class PlayerStats : MonoBehaviour
 
     public void Start() {
         playerData.PlayerInvincible = false;
+        PlayerHealth = (PlayerHealth * playerData.PlayerHealthModifier);
+        Debug.Log(PlayerHealth);
     }
     public void Update() {
         if (playerData.PlayerInvincible) {
@@ -28,6 +30,7 @@ public class PlayerStats : MonoBehaviour
         if (!playerData.PlayerInvincible) {
             PlayerHealth -= EnemyDamage;
             Debug.Log("Player takes damage");
+            Debug.Log(PlayerHealth);
             playerData.PlayerInvincible = true;
             Debug.Log("IFrames true");
 
