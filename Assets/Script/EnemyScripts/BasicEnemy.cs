@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] protected EnemyData enemyData;
+    [SerializeField] public EnemyData enemyData;
     protected NavMeshAgent enemyNav;
     protected GameObject player;
     protected PlayerStats playerStats;
