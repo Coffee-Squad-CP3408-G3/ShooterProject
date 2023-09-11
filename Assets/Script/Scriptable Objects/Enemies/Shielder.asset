@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db13caad9094bdb42bd3e45e993ed1b9, type: 3}
-  m_Name: Enemy Shield
+  m_Name: Shielder
   m_EditorClassIdentifier: 
   name: Shielder
   EnemyHealth: 25

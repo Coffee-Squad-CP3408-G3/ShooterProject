@@ -12405,11 +12405,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85f32f4f99f5c248831a1b23232df63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 10
   groundDrag: 5
   jumpForce: 14
   jumpCooldown: 1
-  airMultiplier: 0.4
+  airMultiplier: 0.6
   orientation: {fileID: 634513892}
   jumpKey: 32
   sprintKey: 304
@@ -12546,7 +12546,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2812758230720517753, guid: 3734a16de6339cd4aa9055564e9f2b8d, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2812758230720517753, guid: 3734a16de6339cd4aa9055564e9f2b8d, type: 3}
       propertyPath: m_Acceleration

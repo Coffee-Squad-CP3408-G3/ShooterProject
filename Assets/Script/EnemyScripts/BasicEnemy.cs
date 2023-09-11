@@ -16,6 +16,7 @@ public class EnemyAI : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         playerStats = player.GetComponent<PlayerStats>();
         health = enemyData.EnemyHealth;
+        enemy.speed = enemyData.EnemySpeed; 
     }
 
     private void Update()
