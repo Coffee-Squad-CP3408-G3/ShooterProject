@@ -10,22 +10,30 @@ public class SpawnerAI : MonoBehaviour
     static float currentBudget = 0;
     static GameObject[] spawners;
     static GameObject controller;
+    static GameObject[] enemyList;
+    static int chosenEnemy;
 
     void Start() {
         spawners = GameObject.FindGameObjectsWithTag("Spawner");
         controller = GameObject.FindGameObjectWithTag("SpawnController");
+        enemyList = controller.GetComponent<Enemies>().enemies;
+        currentBudget = 20;
     }
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= 6) {
-            secondsPassed++;
+        if (timer >= 1) {
             timer = 0;
+            secondsPassed++;
             currentBudget++;
 
             if(currentBudget > 0) {
-                if (Random.Range(0,10) > 0) {
-                    Instantiate(controller.GetComponent<Enemies>().enemies[0], spawners[Random.Range(0,3)].transform.position, Quaternion.identity);
+                if (Random.Range(0,100) > 8) {
+                    chosenEnemy = Random.Range(0, enemyList.Length);
+                    if(enemyList[chosenEnemy].GetComponent<EnemyAI>().enemyData.EnemyValue <= currentBudget) {
+                        Instantiate(enemyList[chosenEnemy], spawners[Random.Range(0,2)].transform.position, Quaternion.identity);
+                        currentBudget -= enemyList[chosenEnemy].GetComponent<EnemyAI>().enemyData.EnemyValue;
+                    }
                 }
             }
         }
