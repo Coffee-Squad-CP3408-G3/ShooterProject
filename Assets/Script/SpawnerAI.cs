@@ -25,18 +25,18 @@ public class SpawnerAI : MonoBehaviour
         if (timer >= 1) {
             timer = 0;
             secondsPassed++;
-            currentBudget++;
+            currentBudget += 1 + (secondsPassed * 0.1);
 
-            if(currentBudget > 0) {
-                if (Random.Range(0,100) > 8) {
-                    chosenEnemy = Random.Range(0, enemyList.Length);
-                    if(enemyList[chosenEnemy].GetComponent<EnemyAI>().enemyData.EnemyValue <= currentBudget) {
-                        Instantiate(enemyList[chosenEnemy], spawners[Random.Range(0,2)].transform.position, Quaternion.identity);
-                        currentBudget -= enemyList[chosenEnemy].GetComponent<EnemyAI>().enemyData.EnemyValue;
+        if(currentBudget > 0) {
+            if (Random.Range(0,10) > 7 ) {
+                chosenEnemy = Random.Range(0, enemyList.Length);
+                if(enemyList[chosenEnemy].GetComponent<EnemyAI>().enemyData.EnemyValue <= currentBudget) {
+                    Instantiate(enemyList[chosenEnemy], spawners[Random.Range(0,2)].transform.position, Quaternion.identity);
+                    currentBudget -= enemyList[chosenEnemy].GetComponent<EnemyAI>().enemyData.EnemyValue;
+                    Debug.Log(currentBudget);
                     }
                 }
             }
         }
-        
     }
 }
