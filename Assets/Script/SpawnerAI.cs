@@ -24,7 +24,7 @@ public class SpawnerAI : MonoBehaviour
             currentBudget++;
 
             if(currentBudget > 0) {
-                if (Random.Range(0,10) > 5) {
+                if (Random.Range(0,10) > 0) {
                     Instantiate(controller.GetComponent<Enemies>().enemies[0], spawners[Random.Range(0,3)].transform.position, Quaternion.identity);
                 }
             }

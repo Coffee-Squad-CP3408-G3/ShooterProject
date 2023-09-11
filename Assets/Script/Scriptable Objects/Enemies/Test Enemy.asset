@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Test Enemy
   m_EditorClassIdentifier: 
   name: Test
-  EnemyHealth: 1
+  EnemyHealth: 45
   EnemyDamage: 1
   EnemySpeed: 1
   EnemyDamageRate: 1
+  EnemyStopRange: 0
   EnemyValue: 1
