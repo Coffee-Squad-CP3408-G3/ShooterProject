@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Test
   EnemyHealth: 45
   EnemyDamage: 1
-  EnemySpeed: 1
+  EnemySpeed: 10
   EnemyDamageRate: 1
   EnemyStopRange: 0
   EnemyValue: 1

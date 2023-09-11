@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db13caad9094bdb42bd3e45e993ed1b9, type: 3}
   m_Name: Enemy Shield
   m_EditorClassIdentifier: 
-  name: Shield
-  EnemyHealth: 50
-  EnemyDamage: 0
-  EnemySpeed: 0
-  EnemyDamageRate: 0
+  name: Shielder
+  EnemyHealth: 25
+  EnemyDamage: 5
+  EnemySpeed: 5
+  EnemyDamageRate: 1
   EnemyStopRange: 0
-  EnemyValue: 0
+  EnemyValue: 2
