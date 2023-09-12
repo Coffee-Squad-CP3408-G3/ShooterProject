@@ -25,7 +25,7 @@ public class SpawnerAI : MonoBehaviour
         if (timer >= 1) {
             timer = 0;
             secondsPassed++;
-            currentBudget += 1 + (secondsPassed * 0.1);
+            currentBudget += 1 + (secondsPassed * 0.1f);
 
         if(currentBudget > 0) {
             if (Random.Range(0,10) > 7 ) {
