@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerStats : MonoBehaviour
     public PlayerData playerData;
     public float PlayerHealth = 100f;
     float IFrameTimer = 0;
+     
 
     public void Start() {
         playerData.PlayerInvincible = false;
@@ -44,10 +46,16 @@ public class PlayerStats : MonoBehaviour
             if (PlayerHealth <= 0) {
                 deadAudio.Play();
                 Destroy(gameObject);
+
                 Debug.Log("You died");
+                GoToScene("EndGame");
             }
         }
 
         
+    }
+    public void GoToScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
