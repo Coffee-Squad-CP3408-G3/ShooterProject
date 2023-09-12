@@ -14,8 +14,6 @@ public class Gun : MonoBehaviour {
     public static Action shootInput;
     public static Action reloadInput;
     [SerializeField] public AudioSource gunShot;
-
-
     private void Start() {
         shootInput += Shoot;
         reloadInput += StartReload;
@@ -34,11 +32,12 @@ public class Gun : MonoBehaviour {
                     enemy?.TakeDamage(gunData.damage);
                 }
                 
-                
+
                 gunData.currentAmmo--;
                 gunShot.Play();
                 timeSinceLastShot = 0;
                 OnGunShot();
+                cam.GetComponent<PlayerCam>().Recoil(gunData.recoilValue * 5);
             }
         }
     }

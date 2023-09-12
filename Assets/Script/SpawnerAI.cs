@@ -33,7 +33,6 @@ public class SpawnerAI : MonoBehaviour
                 if(enemyList[chosenEnemy].GetComponent<EnemyAI>().enemyData.EnemyValue <= currentBudget) {
                     Instantiate(enemyList[chosenEnemy], spawners[Random.Range(0,2)].transform.position, Quaternion.identity);
                     currentBudget -= enemyList[chosenEnemy].GetComponent<EnemyAI>().enemyData.EnemyValue;
-                    Debug.Log(currentBudget);
                     }
                 }
             }
