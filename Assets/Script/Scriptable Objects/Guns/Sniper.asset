@@ -15,6 +15,7 @@ MonoBehaviour:
   name: Sniper
   damage: 100
   maxDistance: 600
+  recoilValue: 10
   currentAmmo: 5
   magSize: 5
   fireRate: 30

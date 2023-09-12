@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BasicEnemy
   m_EditorClassIdentifier: 
   name: BasicWalker
-  EnemyHealth: 45
-  EnemyDamage: 1
+  EnemyHealth: 30
+  EnemyDamage: 10
   EnemySpeed: 10
   EnemyDamageRate: 1
   EnemyStopRange: 0
