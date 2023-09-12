@@ -26,7 +26,7 @@ public class PlayerStats : MonoBehaviour
         healthBar = GetComponent<Image>();
     }
     public void Update() {
-        healthBar.fillAmount = PlayerHealth/ maxHealth;
+        // healthBar.fillAmount = PlayerHealth/ maxHealth;
         if (playerData.PlayerInvincible) {
             IFrameTimer += Time.deltaTime;
             Debug.Log(IFrameTimer);

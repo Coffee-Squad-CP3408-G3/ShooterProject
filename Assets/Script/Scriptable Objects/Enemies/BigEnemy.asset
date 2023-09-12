@@ -18,4 +18,4 @@ MonoBehaviour:
   EnemySpeed: 3
   EnemyDamageRate: 1
   EnemyStopRange: 0
-  EnemyValue: 10
+  EnemyValue: 15
