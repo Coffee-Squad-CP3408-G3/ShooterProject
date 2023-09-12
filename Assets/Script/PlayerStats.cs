@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -10,14 +12,21 @@ public class PlayerStats : MonoBehaviour
     public PlayerData playerData;
     public float PlayerHealth = 100f;
     float IFrameTimer = 0;
-     
+    private Image healthBar;
+    private float maxHealth;
+
+
 
     public void Start() {
         playerData.PlayerInvincible = false;
         PlayerHealth = (PlayerHealth * playerData.PlayerHealthModifier);
+        maxHealth = PlayerHealth;
         Debug.Log(PlayerHealth);
+        
+        healthBar = GetComponent<Image>();
     }
     public void Update() {
+        healthBar.fillAmount = PlayerHealth/ maxHealth;
         if (playerData.PlayerInvincible) {
             IFrameTimer += Time.deltaTime;
             Debug.Log(IFrameTimer);
@@ -31,6 +40,7 @@ public class PlayerStats : MonoBehaviour
     public void PlayerTakeDamage(float EnemyDamage) {
         if (!playerData.PlayerInvincible) {
             PlayerHealth -= EnemyDamage;
+            healthBar.fillAmount = PlayerHealth / maxHealth;
             Debug.Log("Player takes damage");
             Debug.Log(PlayerHealth);
             playerData.PlayerInvincible = true;
