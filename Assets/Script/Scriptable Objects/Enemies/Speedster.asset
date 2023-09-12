@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db13caad9094bdb42bd3e45e993ed1b9, type: 3}
   m_Name: Speedster
   m_EditorClassIdentifier: 
-  name: Shielder
-  EnemyHealth: 25
-  EnemyDamage: 15
-  EnemySpeed: 6
+  name: Speedster
+  EnemyHealth: 15
+  EnemyDamage: 25
+  EnemySpeed: 12
   EnemyDamageRate: 1
   EnemyStopRange: 0
   EnemyValue: 7

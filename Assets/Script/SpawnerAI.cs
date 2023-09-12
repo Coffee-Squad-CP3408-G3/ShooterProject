@@ -25,7 +25,7 @@ public class SpawnerAI : MonoBehaviour
         if (timer >= 3) {
             timer = 0;
             secondsPassed++;
-            currentBudget += 1 + (secondsPassed * 0.01f);
+            currentBudget += 1 + (secondsPassed * 0.1f);
             Debug.Log(currentBudget);
 
         if(currentBudget > 0) {
