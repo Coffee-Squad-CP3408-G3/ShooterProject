@@ -14,19 +14,20 @@ public class ShieldEnemy : EnemyAI
 
         if(!canCharge) {
             chargeCooldown += Time.deltaTime;
-            if(chargeCooldown >= 10) canCharge = true;
+            if(chargeCooldown >= 15) canCharge = true;
         }
 
-        if(Vector3.Distance(transform.position, player.transform.position) > 10 && Vector3.Distance(transform.position, player.transform.position) < 15 && canCharge) {
+        if(Vector3.Distance(transform.position, player.transform.position) > 5 && Vector3.Distance(transform.position, player.transform.position) < 15 && canCharge) {
             enemyNav.speed = 15;
             enemyNav.acceleration = 12;
             isCharging = true;
             canCharge = false;
+            enemyNav.SetDestination(player.transform.position);
             }
 
         if(isCharging) {
             chargeDuration += Time.deltaTime;
-            if(chargeDuration >= 5) {
+            if(chargeDuration >= 1) {
                 enemyNav.speed = enemyData.EnemySpeed;
                 enemyNav.acceleration = 8;
                 chargeDuration = 0;

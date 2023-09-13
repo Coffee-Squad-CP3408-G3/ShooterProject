@@ -15,6 +15,7 @@ MonoBehaviour:
   name: SMG
   damage: 10
   maxDistance: 200
+  recoilValue: 1
   currentAmmo: 50
   magSize: 50
   fireRate: 600

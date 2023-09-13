@@ -42,11 +42,12 @@ public class Gun : MonoBehaviour {
                     enemy?.TakeDamage(PlayerDamage);
                 }
                 
-                
+
                 gunData.currentAmmo--;
                 gunShot.Play();
                 timeSinceLastShot = 0;
                 OnGunShot();
+                cam.GetComponent<PlayerCam>().Recoil(gunData.recoilValue * 5);
             }
         }
     }
@@ -82,6 +83,13 @@ public class Gun : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.R)) {
             reloadInput?.Invoke();
+        }
+
+        if(gunData.reloading) {
+            transform.localRotation = Quaternion.Euler(-45,0,0);
+        }
+        else {
+            transform.localRotation = Quaternion.Euler(0,0,0);
         }
     }
 
