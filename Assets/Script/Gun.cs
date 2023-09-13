@@ -10,7 +10,6 @@ public class Gun : MonoBehaviour {
     [SerializeField] public GunData gunData;
     [SerializeField] public PlayerData playerData;
     private Transform cam;
-
     float timeSinceLastShot;
 
     public static Action shootInput;
@@ -19,6 +18,7 @@ public class Gun : MonoBehaviour {
     public float PlayerFireRate;
     public float PlayerDamage;
     public int PlayerAmmo;
+    protected AudioSource emptyShot;
 
 
     private void Start() {
@@ -28,23 +28,25 @@ public class Gun : MonoBehaviour {
         PlayerFireRate = (gunData.fireRate * playerData.FireRateModifier);
         PlayerDamage = (gunData.damage * playerData.PlayerDamageModifier);
         PlayerAmmo = (gunData.magSize * playerData.AmmoModifier);
+        emptyShot = GameObject.FindWithTag("Player").GetComponent<PlayerStats>().emptyClip;
     }
 
     private bool CanShoot() => !gunData.reloading && timeSinceLastShot > 1f / (PlayerFireRate / 60f);
 
     public void Shoot() {
-        
+        if (gunData.currentAmmo == 0) {
+            if(!emptyShot.isPlaying) emptyShot.Play();
+        }
+
         if (gunData.currentAmmo > 0) {
             if (CanShoot()) {
                 if (Physics.Raycast(cam.position, transform.forward, out RaycastHit hitInfo, gunData.maxDistance)) {
-                    Debug.DrawRay(cam.position, transform.forward, Color.blue, 30);
                     EnemyAI enemy = hitInfo.transform.GetComponent<EnemyAI>();
                     enemy?.TakeDamage(PlayerDamage);
                 }
                 
-
                 gunData.currentAmmo--;
-                gunShot.Play();
+                if(!gunShot.isPlaying) gunShot.Play();
                 timeSinceLastShot = 0;
                 OnGunShot();
                 cam.GetComponent<PlayerCam>().Recoil(gunData.recoilValue * 5);
@@ -74,6 +76,9 @@ public class Gun : MonoBehaviour {
             Shoot();
         }
 
+        
+        if (Input.GetMouseButtonUp(0) || gunData.currentAmmo == 0) gunShot.Stop();
+
         if (Input.GetKeyDown(KeyCode.R)) {
             StartReload();
         }
@@ -96,4 +101,4 @@ public class Gun : MonoBehaviour {
     private void OnGunShot() {
         Debug.Log("Fired Gun");
     }
-}
+}   
