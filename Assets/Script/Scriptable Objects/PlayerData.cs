@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName="Soldier", menuName="Player/Soldier")]
+[CreateAssetMenu(fileName="PlayerData", menuName="Player/PlayerClass")]
 public class PlayerData : ScriptableObject {
     [Header("Affects Player Character")]
     public float PlayerHealthModifier;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public PlayerData playerData;
     [Header("Movement")]
     public float moveSpeed;
     public float groundDrag;
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        moveSpeed = (moveSpeed * playerData.PlayerSpeedModifier);
     }   
 
     private void FixedUpdate()

@@ -153,7 +153,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: 65a612c25ff265449b5a467022813d3f, type: 2}
+  playerData: {fileID: 11400000, guid: 6e74bde88d091e344b0cdd800f537583, type: 2}
   gunShot: {fileID: -4942134965704252422}
+  PlayerFireRate: 0
+  PlayerDamage: 0
+  PlayerAmmo: 0
 --- !u!82 &-4942134965704252422
 AudioSource:
   m_ObjectHideFlags: 0

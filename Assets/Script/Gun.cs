@@ -5,8 +5,10 @@ using UnityEditor;
 using UnityEngine;
 
 public class Gun : MonoBehaviour {
+    
     [Header("References")]
     [SerializeField] public GunData gunData;
+    [SerializeField] public PlayerData playerData;
     private Transform cam;
 
     float timeSinceLastShot;
@@ -14,15 +16,21 @@ public class Gun : MonoBehaviour {
     public static Action shootInput;
     public static Action reloadInput;
     [SerializeField] public AudioSource gunShot;
+    public float PlayerFireRate;
+    public float PlayerDamage;
+    public int PlayerAmmo;
 
 
     private void Start() {
         shootInput += Shoot;
         reloadInput += StartReload;
         cam = GameObject.FindWithTag("MainCamera").transform;
+        PlayerFireRate = (gunData.fireRate * playerData.FireRateModifier);
+        PlayerDamage = (gunData.damage * playerData.PlayerDamageModifier);
+        PlayerAmmo = (gunData.magSize * playerData.AmmoModifier);
     }
 
-    private bool CanShoot() => !gunData.reloading && timeSinceLastShot > 1f / (gunData.fireRate / 60f);
+    private bool CanShoot() => !gunData.reloading && timeSinceLastShot > 1f / (PlayerFireRate / 60f);
 
     public void Shoot() {
         
@@ -31,7 +39,7 @@ public class Gun : MonoBehaviour {
                 if (Physics.Raycast(cam.position, transform.forward, out RaycastHit hitInfo, gunData.maxDistance)) {
                     Debug.DrawRay(cam.position, transform.forward, Color.blue, 30);
                     EnemyAI enemy = hitInfo.transform.GetComponent<EnemyAI>();
-                    enemy?.TakeDamage(gunData.damage);
+                    enemy?.TakeDamage(PlayerDamage);
                 }
                 
                 
@@ -45,7 +53,7 @@ public class Gun : MonoBehaviour {
 
     private void StartReload() {
         Debug.Log("Reload Key pressed");
-        if (gunData.currentAmmo < gunData.magSize) {
+        if (gunData.currentAmmo < PlayerAmmo) {
             Debug.Log("Reloading");
             if (!gunData.reloading) {
                 StartCoroutine(Reload());
@@ -56,7 +64,7 @@ public class Gun : MonoBehaviour {
     private IEnumerator Reload() {
         gunData.reloading = true;
         yield return new WaitForSeconds(gunData.reloadTime);
-        gunData.currentAmmo = gunData.magSize;
+        gunData.currentAmmo = PlayerAmmo;
         gunData.reloading = false;
     }
 

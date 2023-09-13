@@ -4,8 +4,9 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
+  - playerData: {fileID: 11400000, guid: 3353b19130ca60846ab5239ed439abde, type: 2}
   - gunData: {fileID: 11400000, guid: 5ba64ec01ee93e445a192c787db26d03, type: 2}
-  - cam: {instanceID: 0}
+  - gunShot: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
