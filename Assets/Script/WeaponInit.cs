@@ -14,6 +14,7 @@ public class WeaponInit : MonoBehaviour
         FirstGun = Instantiate(weapon[1], weaponPosition.transform.position, Quaternion.identity, weaponPosition.transform);
         SecondGun = Instantiate(weapon[0], weaponPosition.transform.position, Quaternion.identity, weaponPosition.transform);
         SecondGun.SetActive(false);
+        FirstGun.tag = "HeldWeapon";
         ActiveWeapon = 2;
     }
     
@@ -23,6 +24,8 @@ public class WeaponInit : MonoBehaviour
                 FirstGun.SetActive(false);
                 SecondGun.SetActive(true);
                 FirstGun.GetComponent<Gun>().gunData.reloading = false;
+                SecondGun.tag = "HeldWeapon";
+                FirstGun.tag = "Untagged";
                 ActiveWeapon = 1;
             }
 
@@ -30,6 +33,8 @@ public class WeaponInit : MonoBehaviour
                 SecondGun.SetActive(false);
                 FirstGun.SetActive(true);
                 SecondGun.GetComponent<Gun>().gunData.reloading = false;
+                FirstGun.tag = "HeldWeapon";
+                SecondGun.tag = "Untagged";
                 ActiveWeapon = 2;
             }
         }

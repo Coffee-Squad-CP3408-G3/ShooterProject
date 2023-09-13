@@ -76,8 +76,7 @@ public class Gun : MonoBehaviour {
             Shoot();
         }
 
-        
-        if (Input.GetMouseButtonUp(0) || gunData.currentAmmo == 0) gunShot.Stop();
+        if (gunData.currentAmmo == 0) gunShot.Stop();
 
         if (Input.GetKeyDown(KeyCode.R)) {
             StartReload();

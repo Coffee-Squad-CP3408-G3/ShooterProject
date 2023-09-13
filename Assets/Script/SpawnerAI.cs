@@ -26,8 +26,7 @@ public class SpawnerAI : MonoBehaviour
             timer = 0;
             secondsPassed++;
             currentBudget += 1 + (secondsPassed * 0.1f);
-            Debug.Log(currentBudget);
-
+        
         if(currentBudget > 0) {
             if (Random.Range(0,10) > 6 ) {
                 chosenEnemy = Random.Range(0, enemyList.Length);

@@ -14,7 +14,7 @@ public class PlayerStats : MonoBehaviour
     public float PlayerHealth = 100f;
     float IFrameTimer = 0;
     private Image healthBar;
-    private float maxHealth;
+    public float maxHealth;
 
 
 
