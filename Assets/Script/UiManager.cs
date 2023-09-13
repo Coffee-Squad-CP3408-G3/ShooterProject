@@ -16,7 +16,16 @@ public class UIManager : MonoBehaviour
       //  ammoText.text = "Ammo: " + count;
     //}
 
-    public void StartHealth(float PlayerHealth)
+    public void Update() {
+        heldWeapon = GameObject.FindWithTag("HeldWeapon");
+        playerHealth = player.GetComponent<PlayerStats>().PlayerHealth;
+        ammoCount = heldWeapon.GetComponent<Gun>().gunData.currentAmmo;
+        
+        healthBar.fillAmount = playerHealth/playerMaxHealth;
+        Debug.Log(playerHealth/playerMaxHealth);
+        
+    }
+    public void UpdateAmmo()
     {
         maxHealth = PlayerHealth;
     }
