@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class PlayerStats : MonoBehaviour
 {
     public AudioSource deadAudio;
+    public AudioSource emptyClip;
     //Further stats to add: Movement speed, Damage Resist, Damage Multiplier, etc.
     public PlayerData playerData;
     public float PlayerHealth = 100f;

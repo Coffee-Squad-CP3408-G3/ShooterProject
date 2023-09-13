@@ -346,7 +346,7 @@ Transform:
   m_Children:
   - {fileID: 1209983696}
   - {fileID: 818418242}
-  - {fileID: 1285290174}
+  - {fileID: 73103420}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2066,6 +2066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deadAudio: {fileID: 818418243}
+  emptyClip: {fileID: 73103421}
   playerData: {fileID: 11400000, guid: 3353b19130ca60846ab5239ed439abde, type: 2}
   PlayerHealth: 100
 --- !u!1 &1807353519
