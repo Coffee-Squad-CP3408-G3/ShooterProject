@@ -8,20 +8,29 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Text ammoText;
     [SerializeField]
-    private float maxHealth;
-    private Image healthBar;
+    public Image healthBar;
+    GameObject player;
+    GameObject heldWeapon;
+    int ammoCount;
+    float playerHealth;
+    float playerMaxHealth;
 
-    //public void UpdateAmmo(int count)
-    //{
-      //  ammoText.text = "Ammo: " + count;
-    //}
-
-    public void StartHealth(float PlayerHealth)
-    {
-        maxHealth = PlayerHealth;
+    public void Start() {
+        player = GameObject.FindWithTag("Player");
+        playerMaxHealth = 100 * player.GetComponent<PlayerStats>().playerData.PlayerHealthModifier;
     }
-    public void UpdateHealth(float PlayerHealth)
+
+    public void Update() {
+        heldWeapon = GameObject.FindWithTag("HeldWeapon");
+        playerHealth = player.GetComponent<PlayerStats>().PlayerHealth;
+        ammoCount = heldWeapon.GetComponent<Gun>().gunData.currentAmmo;
+        
+        healthBar.fillAmount = playerHealth/playerMaxHealth;
+        Debug.Log(playerHealth/playerMaxHealth);
+        
+    }
+    public void UpdateAmmo()
     {
-        healthBar.fillAmount = PlayerHealth / maxHealth;
+        ammoText.text = "Ammo: " + ammoCount;
     }
 }
