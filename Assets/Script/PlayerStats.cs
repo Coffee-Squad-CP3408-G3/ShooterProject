@@ -13,7 +13,6 @@ public class PlayerStats : MonoBehaviour
     public PlayerData playerData;
     public float PlayerHealth = 100f;
     float IFrameTimer = 0;
-    private Image healthBar;
     public float maxHealth;
 
 
@@ -24,10 +23,8 @@ public class PlayerStats : MonoBehaviour
         maxHealth = PlayerHealth;
         Debug.Log(PlayerHealth);
         
-        healthBar = GetComponent<Image>();
     }
     public void Update() {
-        // healthBar.fillAmount = PlayerHealth/ maxHealth;
         if (playerData.PlayerInvincible) {
             IFrameTimer += Time.deltaTime;
             Debug.Log(IFrameTimer);
@@ -41,7 +38,6 @@ public class PlayerStats : MonoBehaviour
     public void PlayerTakeDamage(float EnemyDamage) {
         if (!playerData.PlayerInvincible) {
             PlayerHealth -= EnemyDamage;
-            healthBar.fillAmount = PlayerHealth / maxHealth;
             Debug.Log("Player takes damage");
             Debug.Log(PlayerHealth);
             playerData.PlayerInvincible = true;
