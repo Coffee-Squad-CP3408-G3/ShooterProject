@@ -2,17 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangedEnemy : MonoBehaviour
+public class RangedEnemy : EnemyAI
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // public EnemyAimRange enemyAimRange;
+    public RangedStartAiming rangedStartAiming;
+    public RangedMaxRange rangedMaxRange;
+    float enemyShootCooldown = 0;
+    float enemyAimDuration = 0;
+    bool enemyCanShoot = true;
+    bool enemyIsAiming = false;    
+    
 
-    // Update is called once per frame
-    void Update()
-    {
+    private void Update()
+    {   
+        if (rangedMaxRange.playerInRange) {
+            if (rangedStartAiming.enemyIsAiming) {
+                if (enemyCanShoot) {
+                    if (enemyAimDuration <= 15) {
+                        enemyAimDuration += Time.deltaTime;
+                    }
+                    if (enemyAimDuration >= 15) {
+                        playerStats.PlayerTakeDamage(enemyData.EnemyDamage);
+                        enemyCanShoot = false;
+                        enemyShootCooldown = 0;
+                        Debug.Log("You got shot");
+                    }
+                        
+                }
+                if(!enemyCanShoot) {
+                    enemyShootCooldown += Time.deltaTime;
+                    if (enemyShootCooldown >= 30) {
+                        enemyCanShoot = true;
+                    }
+                }
+            }
+            
+        }
         
+
     }
 }
