@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] public EnemyData enemyData;
     protected NavMeshAgent enemyNav;
     protected GameObject player;
+    protected GameObject playerCam;
     protected PlayerStats playerStats;
     protected float health;
     void Start()
@@ -32,6 +33,7 @@ public class EnemyAI : MonoBehaviour
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Player") {
             playerStats.PlayerTakeDamage(enemyData.EnemyDamage);
+            playerStats.playerDamaged.PlayOneShot(playerStats.playerDamaged.clip, 1f);
         }
     }
 

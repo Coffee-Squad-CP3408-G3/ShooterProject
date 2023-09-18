@@ -9,6 +9,7 @@ public class PlayerStats : MonoBehaviour
 {
     public AudioSource deadAudio;
     public AudioSource emptyClip;
+    public AudioSource playerDamaged;
     //Further stats to add: Movement speed, Damage Resist, Damage Multiplier, etc.
     public PlayerData playerData;
     public float PlayerHealth = 100f;
