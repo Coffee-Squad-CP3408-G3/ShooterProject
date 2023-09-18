@@ -46,7 +46,7 @@ public class Gun : MonoBehaviour {
                 }
                 
                 gunData.currentAmmo--;
-                if(!gunShot.isPlaying) gunShot.Play();
+                gunShot.PlayOneShot(gunShot.clip, 1f);
                 timeSinceLastShot = 0;
                 OnGunShot();
                 cam.GetComponent<PlayerCam>().Recoil(gunData.recoilValue * 5);
