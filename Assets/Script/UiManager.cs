@@ -24,11 +24,8 @@ public class UIManager : MonoBehaviour
         heldWeapon = GameObject.FindWithTag("HeldWeapon");
         playerHealth = player.GetComponent<PlayerStats>().PlayerHealth;
         ammoCount = heldWeapon.GetComponent<Gun>().gunData.currentAmmo;
-        // UpdateAmmo();
-        // UpdateHealth();
         
         healthBar.fillAmount = playerHealth/playerMaxHealth;
-        Debug.Log(playerHealth/playerMaxHealth);
         
     }
     public void UpdateAmmo()

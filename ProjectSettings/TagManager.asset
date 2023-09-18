@@ -7,6 +7,8 @@ TagManager:
   - Spawner
   - SpawnController
   - HeldWeapon
+  - Crosshair
+  - Enemies
   layers:
   - Default
   - TransparentFX

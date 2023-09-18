@@ -20,9 +20,7 @@ public class PlayerStats : MonoBehaviour
     public void Start() {
         playerData.PlayerInvincible = false;
         PlayerHealth = (PlayerHealth * playerData.PlayerHealthModifier);
-        maxHealth = PlayerHealth;
-        Debug.Log(PlayerHealth);
-        
+        maxHealth = PlayerHealth;        
     }
     public void Update() {
         if (playerData.PlayerInvincible) {
