@@ -21,15 +21,16 @@ public class UIManager : MonoBehaviour
     }
 
     public void Update() {
-        heldWeapon = GameObject.FindWithTag("HeldWeapon");
+        heldWeapon = GameObject.FindWithTag("HeldWeapon");  
         playerHealth = player.GetComponent<PlayerStats>().PlayerHealth;
         ammoCount = heldWeapon.GetComponent<Gun>().gunData.currentAmmo;
         
         healthBar.fillAmount = playerHealth/playerMaxHealth;
+        ammoText.text = "Ammo: " + ammoCount;
         
     }
     public void UpdateAmmo()
     {
-        ammoText.text = "Ammo: " + ammoCount;
+
     }
 }
