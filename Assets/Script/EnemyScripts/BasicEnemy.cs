@@ -33,7 +33,6 @@ public class EnemyAI : MonoBehaviour
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Player") {
             playerStats.PlayerTakeDamage(enemyData.EnemyDamage);
-            playerStats.playerDamaged.PlayOneShot(playerStats.playerDamaged.clip, 1f);
         }
     }
 

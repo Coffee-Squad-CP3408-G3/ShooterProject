@@ -37,23 +37,13 @@ public class PlayerStats : MonoBehaviour
     public void PlayerTakeDamage(float EnemyDamage) {
         if (!playerData.PlayerInvincible) {
             PlayerHealth -= EnemyDamage;
-            Debug.Log("Player takes damage");
-            Debug.Log(PlayerHealth);
             playerData.PlayerInvincible = true;
-            Debug.Log("IFrames true");
-
-            if (PlayerHealth < 100) {
-                Debug.Log("Less than 1000");
-            }
-            if (PlayerHealth < 50) {
-                Debug.Log("Less than 500");
-            }
+            playerDamaged.PlayOneShot(playerDamaged.clip, 1f);
 
             if (PlayerHealth <= 0) {
                 deadAudio.Play();
                 Destroy(gameObject);
 
-                Debug.Log("You died");
                 GoToScene("EndGame");
             }
         }
