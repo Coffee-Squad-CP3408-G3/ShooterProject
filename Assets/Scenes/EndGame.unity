@@ -879,9 +879,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Congratulations Survivor!\r\n\r\nYou've shown remarkable resilience in
     the face of the zombie apocalypse. Your journey through the hordes of the undead
-    has been nothing short of heroic.\r\n\r\nTotal Survival Time: [Insert Total Survival
-    Time Here]\n \nThank you for playing and for being an inspiration to all survivors
-    out there. Until next time, stay vigilant and stay alive!"
+    has been nothing short of heroic.\r\n\r\n \nThank you for playing and for being
+    an inspiration to all survivors out there. Until next time, stay vigilant and
+    stay alive!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
