@@ -9,11 +9,23 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: b3c57b9e5b6a9284a8f53427f9742daa
   - enabled: 1
-    path: Assets/Scenes/MovementTest.unity
-    guid: b45a1c4af71cc754cb094cecde46a0e1
+    path: Assets/Scenes/Introduction.unity
+    guid: 80636df59a2e31841ace83062448888c
   - enabled: 1
     path: Assets/Scenes/ClassSelect.unity
     guid: f5c40b54cd1fffe4da6937ee454e5959
+  - enabled: 1
+    path: Assets/Scenes/Breacher.unity
+    guid: 4d1eb8e7bf5d3d245a10f71569436e79
+  - enabled: 1
+    path: Assets/Scenes/MovementTest 1.unity
+    guid: 4ec173abd06158343a63fd246d2c59df
+  - enabled: 1
+    path: Assets/Scenes/Sniper.unity
+    guid: d1e10babdacfe1742b0efc0940a94efa
+  - enabled: 1
+    path: Assets/Scenes/MovementTest.unity
+    guid: b45a1c4af71cc754cb094cecde46a0e1
   - enabled: 1
     path: Assets/Scenes/EndGame.unity
     guid: 23627a22555815d42838210f5ca2200e
