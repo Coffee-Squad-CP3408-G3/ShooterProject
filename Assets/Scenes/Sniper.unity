@@ -16869,7 +16869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85f32f4f99f5c248831a1b23232df63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: 3353b19130ca60846ab5239ed439abde, type: 2}
+  playerData: {fileID: 11400000, guid: 3a618efc29202b94fbe79aa6756cf166, type: 2}
   moveSpeed: 10
   groundDrag: 5
   jumpForce: 14
