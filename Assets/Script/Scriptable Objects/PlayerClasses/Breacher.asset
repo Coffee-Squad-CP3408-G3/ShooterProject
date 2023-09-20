@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d475aa08ae93c884b8307d8c5739541c, type: 3}
-  m_Name: Tank
+  m_Name: Breacher
   m_EditorClassIdentifier: 
+  classID: 2
   PlayerHealthModifier: 2
   PlayerSpeedModifier: 0.7
   PlayerDamageResist: 0
   PlayerInvincible: 0
-  PlayerDamageModifier: 0
-  AmmoModifier: 0
-  FireRateModifier: 0
+  PlayerDamageModifier: 1
+  AmmoModifier: 1
+  FireRateModifier: 1

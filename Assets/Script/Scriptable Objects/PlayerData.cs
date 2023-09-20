@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName="PlayerData", menuName="Player/PlayerClass")]
 public class PlayerData : ScriptableObject {
     [Header("Affects Player Character")]
+    public int classID;
     public float PlayerHealthModifier;
     public float PlayerSpeedModifier;
     public float PlayerDamageResist;
