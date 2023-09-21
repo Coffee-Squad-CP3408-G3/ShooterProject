@@ -99,8 +99,7 @@ public class Gun : MonoBehaviour {
         }
 
         if(gunData.reloading) {
-            // transform.localRotation = Quaternion.Euler(-45,0,0);
-            transform.Rotate(45,0,0);
+            transform.localRotation = Quaternion.Euler(-45,0,0);
         }
         else {
             transform.localRotation = Quaternion.Euler(0,0,0);
