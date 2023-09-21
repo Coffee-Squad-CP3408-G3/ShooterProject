@@ -25,10 +25,10 @@ public class SpawnerAI : MonoBehaviour
         if (timer >= 3) {
             timer = 0;
             secondsPassed++;
-            currentBudget += 1 + (secondsPassed * 0.1f);
+            currentBudget += 1 + (secondsPassed * 0.01f);
         
         if(currentBudget > 0) {
-            if (Random.Range(0,10) > 8 - (secondsPassed * 0.1f)) {
+            if (Random.Range(0,10) > 8 - (secondsPassed * 0.05f)) {
                 chosenEnemy = Random.Range(0, enemyList.Length);
                 if(enemyList[chosenEnemy].GetComponent<EnemyAI>().enemyData.EnemyValue <= currentBudget) {
                     Instantiate(enemyList[chosenEnemy], spawners[Random.Range(0,2)].transform.position, Quaternion.identity);
