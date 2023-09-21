@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     int ammoCount;
     float playerHealth;
     float playerMaxHealth;
+    public Image redScreen;
 
     public void Start() {
         player = GameObject.FindWithTag("Player");
@@ -28,9 +29,9 @@ public class UIManager : MonoBehaviour
         healthBar.fillAmount = playerHealth/playerMaxHealth;
         ammoText.text = "Ammo: " + ammoCount;
         
-    }
-    public void UpdateAmmo()
-    {
+        float redScreenAmount = (0.003f * (255 - (((playerHealth/playerMaxHealth) * 255))));
+        Debug.Log(redScreenAmount);
+        redScreen.color = new Color(redScreen.color.r, redScreen.color.g, redScreen.color.b, redScreenAmount);
 
     }
 }

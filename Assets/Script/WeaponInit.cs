@@ -8,11 +8,27 @@ public class WeaponInit : MonoBehaviour
     public GameObject weaponPosition;
     GameObject FirstGun;
     GameObject SecondGun;
+    GameObject player;
+
     int ActiveWeapon;
     void Start()
     {
-        FirstGun = Instantiate(weapon[1], weaponPosition.transform.position, Quaternion.identity, weaponPosition.transform);
-        SecondGun = Instantiate(weapon[0], weaponPosition.transform.position, Quaternion.identity, weaponPosition.transform);
+        player = GameObject.FindGameObjectWithTag("Player");
+        if(player.GetComponent<PlayerMovement>().playerData.classID == 0) {
+            FirstGun = Instantiate(weapon[1], weaponPosition.transform.position, Quaternion.identity, weaponPosition.transform);
+            SecondGun = Instantiate(weapon[0], weaponPosition.transform.position, Quaternion.identity, weaponPosition.transform);
+        }
+
+        if(player.GetComponent<PlayerMovement>().playerData.classID == 1) {
+            FirstGun = Instantiate(weapon[4], weaponPosition.transform.position, Quaternion.identity, weaponPosition.transform);
+            SecondGun = Instantiate(weapon[2], weaponPosition.transform.position, Quaternion.identity, weaponPosition.transform);
+        }
+
+        if(player.GetComponent<PlayerMovement>().playerData.classID == 2) {
+            FirstGun = Instantiate(weapon[3], weaponPosition.transform.position, Quaternion.identity, weaponPosition.transform);
+            SecondGun = Instantiate(weapon[0], weaponPosition.transform.position, Quaternion.identity, weaponPosition.transform);
+        }
+        
         SecondGun.SetActive(false);
         FirstGun.tag = "HeldWeapon";
         ActiveWeapon = 2;
