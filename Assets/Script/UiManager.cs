@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,10 +16,13 @@ public class UIManager : MonoBehaviour
     float playerHealth;
     float playerMaxHealth;
     public Image redScreen;
+    
+    
 
     public void Start() {
         player = GameObject.FindWithTag("Player");
         playerMaxHealth = 100 * player.GetComponent<PlayerStats>().playerData.PlayerHealthModifier;
+        
     }
 
     public void Update() {
@@ -32,6 +36,8 @@ public class UIManager : MonoBehaviour
         float redScreenAmount = (0.003f * (255 - (((playerHealth/playerMaxHealth) * 255))));
         Debug.Log(redScreenAmount);
         redScreen.color = new Color(redScreen.color.r, redScreen.color.g, redScreen.color.b, redScreenAmount);
+
+       
 
     }
 }
