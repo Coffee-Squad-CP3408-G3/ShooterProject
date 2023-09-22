@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SpawnerAI : MonoBehaviour
 {
-    public static float timer;
-    static int secondsPassed = 0;
+    static float timer;
+    public static int secondsPassed = 0;
     static float currentBudget = 0;
     static GameObject[] spawners;
     static GameObject controller;
@@ -17,6 +17,9 @@ public class SpawnerAI : MonoBehaviour
         controller = GameObject.FindGameObjectWithTag("SpawnController");
         enemyList = controller.GetComponent<Enemies>().enemies;
         currentBudget = 20;
+
+        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this.transform.parent.gameObject);
     }
     void Update()
     {
